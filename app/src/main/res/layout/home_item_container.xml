@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp"
+    android:layout_height="170dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+    android:padding="10dp">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/itemContainer"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:padding="10dp">
+
+
+       <ImageView
+           android:id="@+id/itemImage"
+           android:layout_width="159dp"
+           android:layout_height="82dp"
+           android:layout_marginStart="10dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="10dp"
+           app:flow_horizontalAlign="center"
+           app:flow_verticalAlign="center"
+           android:scaleType="fitXY"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+       <TextView
+           android:id="@+id/itemName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:layout_marginBottom="7dp"
+           android:text="Item Name"
+           android:textColor="@color/black"
+           android:textSize="15dp"
+           app:layout_constraintBottom_toTopOf="@+id/itemPrice"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+
+       <TextView
+           android:id="@+id/itemPrice"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="4dp"
+           android:layout_marginTop="7dp"
+           android:text="00.0"
+           android:textColor="@color/black"
+           android:textSize="20dp"
+           android:textStyle="bold"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/itemName" />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
