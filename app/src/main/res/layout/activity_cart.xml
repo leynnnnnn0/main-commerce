@@ -34,7 +34,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cartItemsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="678dp">
+            android:layout_height="639dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 

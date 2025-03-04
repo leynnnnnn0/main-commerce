@@ -48,8 +48,8 @@
 
         <TextView
             android:id="@+id/itemDescription"
-            android:layout_width="324dp"
-            android:layout_height="472dp"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
             android:textColor="@color/black"

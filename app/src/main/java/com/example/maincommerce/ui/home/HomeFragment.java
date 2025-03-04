@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.maincommerce.CartActivity;
 import com.example.maincommerce.R;
+import com.example.maincommerce.SearchActivity;
 import com.example.maincommerce.SigninActivity;
 import com.example.maincommerce.adapters.ItemAdapter;
 import com.example.maincommerce.databinding.FragmentHomeBinding;
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
     Dialog dialog;
-    ImageView cartImage;
+    ImageView cartImage, cameraButton;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,6 +62,11 @@ public class HomeFragment extends Fragment {
         databaseReference = FirebaseDatabase
                 .getInstance()
                 .getReference("Items");
+
+        cameraButton = root.findViewById(R.id.cameraButton);
+        cameraButton.setOnClickListener(view -> {
+            startActivity(new Intent(requireContext(), SearchActivity.class));
+        });
 
         cartImage.setOnClickListener(view -> {
             startActivity(new Intent(requireContext(), CartActivity.class));

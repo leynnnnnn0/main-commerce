@@ -3,6 +3,7 @@ package com.example.maincommerce.ui.notifications;
 import com.example.maincommerce.R;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class NotificationsFragment extends Fragment {
                             orderModelArrayList.clear();
                             for (com.google.firebase.firestore.QueryDocumentSnapshot document : task.getResult()) {
                                 OrderModel orderModel = document.toObject(OrderModel.class);
+                                Log.d("sucess ",orderModel.getItems().get(0).getItemName());
                                 orderModelArrayList.add(orderModel);
                             }
                             dialog.dismiss();
