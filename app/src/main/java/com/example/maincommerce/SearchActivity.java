@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -156,7 +157,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void labelImage(Bitmap bitmap) {
-        // Clear previous results
         resultText.setText("");
         dialog.showDialog();
 
@@ -165,18 +165,12 @@ public class SearchActivity extends AppCompatActivity {
 
             imageLabeler.process(inputImage)
                     .addOnSuccessListener(imageLabels -> {
-                        StringBuilder results = new StringBuilder();
-                        for (ImageLabel imageLabel : imageLabels) {
-                            String text = imageLabel.getText();
-                            float confidence = imageLabel.getConfidence();
-                            results.append("Guess: ").append(text)
-                                    .append(" (").append(String.format("%.1f%%", confidence * 100)).append(")\n");
-                        }
-
-                        if (results.length() > 0) {
-                            resultText.setText(results.toString());
-                        } else {
-                            resultText.setText("No labels found");
+                        if (!imageLabels.isEmpty()) {
+                            String firstLabel = imageLabels.get(0).getText();
+                            Intent intent = new Intent(this, SearchResultActivity.class);
+                            intent.putExtra("query", firstLabel);
+                            startActivity(intent);
+                            Log.d("label", firstLabel);
                         }
                         dialog.dismiss();
                     })
